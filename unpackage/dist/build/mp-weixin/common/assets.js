@@ -1,0 +1,1 @@
+"use strict";exports._imports_0="/static/uni-center/headers.png",exports._imports_0$1="/assets/face-verify-icon.da277dd7.svg",exports._imports_0$2="/uni_modules/uni-sign-in/static/background.png",exports._imports_0$3="/static/uni-load-state/disconnection.png";
