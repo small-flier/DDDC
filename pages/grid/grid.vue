@@ -51,7 +51,7 @@
       ref="udb"
       v-slot:default="{ data, loading, error, options }"
       collection="menu"
-      field="name,file"
+      field="name,file,type"
       @load="handleLoad"
     >
       <view class="example-body">
@@ -64,8 +64,23 @@
                 height: 400rpx;
                 border: 1px solid rgb(243 243 243);
                 border-radius: 22rpx;
+                position: relative;
               "
             >
+              <view
+                style="position: absolute; right: 10rpx; top: 10rpx; z-index: 1"
+              >
+                <uni-tag
+                  :inverted="true"
+                  :text="item.type"
+                  type="success"
+                  size="small"
+                  :circle="true"
+                  :custom-style="{
+                    ...typeColors[item.type || '其他'],
+                  }"
+                />
+              </view>
               <image
                 v-if="item.file && item.file.url"
                 :src="item.file.url"
@@ -164,6 +179,44 @@ export default {
       loadMoreStatus: "more",
       formData: {},
       noNeedFetfh: false,
+      typeColors: {
+        // 'success', 'primary', 'warning', 'error', 'info', ''
+        荤菜: {
+          backgroundColor: "#4335d6",
+          borderColor: "#4335d6",
+          color: "#fff",
+        },
+        素菜: {
+          backgroundColor: "#35d650",
+          borderColor: "#35d650",
+          color: "#fff",
+        },
+        水果: {
+          backgroundColor: "#732626",
+          borderColor: "#732626",
+          color: "#fff",
+        },
+        主食: {
+          backgroundColor: "#B93EAA",
+          borderColor: "#B93EAA",
+          color: "#fff",
+        },
+        汤: {
+          backgroundColor: "#32947F",
+          borderColor: "#32947F",
+          color: "#fff",
+        },
+        饮品: {
+          backgroundColor: "#366CA1",
+          borderColor: "#366CA1",
+          color: "#fff",
+        },
+        其他: {
+          backgroundColor: "#C3DA91",
+          borderColor: "#C3DA91",
+          color: "#fff",
+        },
+      },
     };
   },
   onPullDownRefresh() {

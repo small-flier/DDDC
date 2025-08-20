@@ -9,6 +9,15 @@
       <uni-forms-item label="菜名" required name="name">
         <uni-easyinput v-model="formData.name" placeholder="请输入菜名" />
       </uni-forms-item>
+
+      <uni-forms-item label="分类" required name="type">
+        <uni-data-select
+          v-model="formData.type"
+          :localdata="range"
+          placeholder="请选择分类"
+        />
+      </uni-forms-item>
+
       <uni-forms-item label="图片">
         <uni-file-picker
           v-model="imageValue"
@@ -60,7 +69,23 @@ export default {
             },
           ],
         },
+        type: {
+          rules: [
+            {
+              required: true,
+              errorMessage: "分类不能为空",
+            },
+          ],
+        },
       },
+      range: [
+        { value: "荤菜", text: "荤菜" },
+        { value: "素菜", text: "素菜" },
+        { value: "水果", text: "水果" },
+        { value: "主食", text: "主食" },
+        { value: "汤", text: "汤" },
+        { value: "饮品", text: "饮品" },
+      ],
       loading: false,
       isUpload: false,
     };
