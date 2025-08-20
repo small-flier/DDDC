@@ -5,23 +5,23 @@
     <!-- #endif -->
 
     <!-- banner -->
-    <unicloud-db
+    <!-- <unicloud-db
       ref="bannerdb"
       v-slot:default="{ data, loading, error, options }"
       collection="opendb-banner"
       field="_id,bannerfile,open_url,title"
       @load="onqueryload"
-    >
-      <!-- 当无banner数据时显示占位图 -->
-      <image
+    > -->
+    <!-- 当无banner数据时显示占位图 -->
+    <!-- <image
         v-if="!(loading || data.length)"
         class="banner-image"
         src="/static/uni-center/headers.png"
         mode="aspectFill"
         :draggable="false"
-      />
+      /> -->
 
-      <swiper
+    <!-- <swiper
         v-else
         class="swiper-box"
         @change="changeSwiper"
@@ -37,14 +37,14 @@
             :draggable="false"
           />
         </swiper-item>
-      </swiper>
-    </unicloud-db>
+      </swiper> -->
+    <!-- </unicloud-db> -->
 
     <!-- 宫格 -->
-    <view class="section-box">
+    <!-- <view class="section-box">
       <text class="decoration"></text>
       <text class="section-text">嘟嘟点餐</text>
-    </view>
+    </view> -->
 
     <!-- :options="{ forceUpdate: true }" -->
     <unicloud-db
@@ -76,9 +76,7 @@
                   type="success"
                   size="small"
                   :circle="true"
-                  :custom-style="{
-                    ...typeColors[item.type || '其他'],
-                  }"
+                  :custom-style="getStyle(item.type)"
                 />
               </view>
               <image
@@ -182,38 +180,38 @@ export default {
       typeColors: {
         // 'success', 'primary', 'warning', 'error', 'info', ''
         荤菜: {
-          backgroundColor: "#4335d6",
-          borderColor: "#4335d6",
+          "background-color": "#4335d6",
+          "border-color": "#4335d6",
           color: "#fff",
         },
         素菜: {
-          backgroundColor: "#35d650",
-          borderColor: "#35d650",
+          "background-color": "#35d650",
+          "border-color": "#35d650",
           color: "#fff",
         },
         水果: {
-          backgroundColor: "#732626",
-          borderColor: "#732626",
+          "background-color": "#732626",
+          "border-color": "#732626",
           color: "#fff",
         },
         主食: {
-          backgroundColor: "#B93EAA",
-          borderColor: "#B93EAA",
+          "background-color": "#B93EAA",
+          "border-color": "#B93EAA",
           color: "#fff",
         },
         汤: {
-          backgroundColor: "#32947F",
-          borderColor: "#32947F",
+          "background-color": "#32947F",
+          "border-color": "#32947F",
           color: "#fff",
         },
         饮品: {
-          backgroundColor: "#366CA1",
-          borderColor: "#366CA1",
+          "background-color": "#366CA1",
+          "border-color": "#366CA1",
           color: "#fff",
         },
         其他: {
-          backgroundColor: "#C3DA91",
-          borderColor: "#C3DA91",
+          "background-color": "#C3DA91",
+          "border-color": "#C3DA91",
           color: "#fff",
         },
       },
@@ -368,6 +366,14 @@ export default {
     // },
     handleLoad(data, ended) {
       this.loadMoreStatus = ended ? "noMore" : "more"; // oading 的状态，可选值：more（loading前）、loading（loading中）、noMore（没有更多了）
+    },
+    getStyle(type) {
+      let t = this.typeColors[type];
+      let str = "";
+      for (let key in t) {
+        str += `${key}:${t[key]};`;
+      }
+      return str;
     },
   },
 };

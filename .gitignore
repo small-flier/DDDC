@@ -1,4 +1,4 @@
 .hbuilderx
 .vscode
 node_modules
-/unpackage
+/unpackage/*

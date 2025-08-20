@@ -1,14 +1,11 @@
 {
   "pages": [
-    // {
-    //   "path": "pages/list/list",
-    //   "style": {
-    //     // #ifndef APP
-    //     "enablePullDownRefresh": true,
-    //     // #endif
-    //     "navigationStyle": "custom"
-    //   }
-    // },
+    {
+      "path": "pages/tree/tree",
+      "style": {
+        "navigationBarTitleText": "级联目录"
+      }
+    },
     {
       "path": "pages/grid/grid",
       "style": {
@@ -16,24 +13,29 @@
         "navigationStyle": "custom"
         //#endif
       }
-    }, {
+    },
+    {
       "path": "pages/list/search/search",
       "style": {
         "navigationBarTitleText": "搜索"
       }
-    }, {
+    },
+    {
       "path": "pages/menu/menu",
       "style": {
         "navigationBarTitleText": "再+一道菜"
       }
-    }, {
+    },
+    {
       "path": "pages/list/detail",
       "style": {
         "app-plus": {
           "titleNView": {
-            "buttons": [{
-              "type": "share"
-            }],
+            "buttons": [
+              {
+                "type": "share"
+              }
+            ],
             "type": "transparent"
           }
         },
@@ -59,7 +61,8 @@
           "popGesture": "none"
         }
       }
-    }, {
+    },
+    {
       "path": "pages/ucenter/settings/settings",
       "style": {
         "navigationBarTitleText": "设置"
@@ -71,17 +74,19 @@
         "navigationBarTitleText": "阅读记录",
         "enablePullDownRefresh": true
       }
-    }
+    },
     // #ifdef APP
-    , {
+    {
       "path": "pages/ucenter/about/about",
       "style": {
         "navigationBarTitleText": "关于",
         "app-plus": {
           "titleNView": {
-            "buttons": [{
-              "type": "share"
-            }]
+            "buttons": [
+              {
+                "type": "share"
+              }
+            ]
           }
         }
       }
@@ -98,7 +103,6 @@
           "popGesture": "none",
           "animationType": "fade-in",
           "animationDuration": 200
-
         }
       }
     },
@@ -111,19 +115,23 @@
     }
     // #endif
   ],
-  "subPackages": [{
+  "subPackages": [
+    {
       "root": "uni_modules/uni-feedback",
-      "pages": [{
-        "path": "pages/opendb-feedback/opendb-feedback",
-        "style": {
-          "navigationBarTitleText": "意见反馈",
-          "enablePullDownRefresh": false
+      "pages": [
+        {
+          "path": "pages/opendb-feedback/opendb-feedback",
+          "style": {
+            "navigationBarTitleText": "意见反馈",
+            "enablePullDownRefresh": false
+          }
         }
-      }]
+      ]
     },
     {
       "root": "uni_modules/uni-id-pages/pages",
-      "pages": [{
+      "pages": [
+        {
           "path": "userinfo/userinfo",
           "style": {
             "navigationBarTitleText": "个人资料"
@@ -171,24 +179,28 @@
           "style": {
             "navigationBarTitleText": "重置密码"
           }
-        }, {
+        },
+        {
           "path": "common/webview/webview",
           "style": {
             "enablePullDownRefresh": false,
             "navigationBarTitleText": ""
           }
-        }, {
+        },
+        {
           "path": "userinfo/change_pwd/change_pwd",
           "style": {
             "enablePullDownRefresh": false,
             "navigationBarTitleText": "修改密码"
           }
-        }, {
+        },
+        {
           "path": "register/register-by-email",
           "style": {
             "navigationBarTitleText": "邮箱验证码注册"
           }
-        }, {
+        },
+        {
           "path": "retrieve/retrieve-by-email",
           "style": {
             "navigationBarTitleText": "通过邮箱重置密码"
@@ -200,9 +212,8 @@
             "enablePullDownRefresh": false,
             "navigationBarTitleText": "设置密码"
           }
-        }
+        },
         // #ifdef H5
-        ,
         {
           "path": "userinfo/cropImage/cropImage"
         },
@@ -252,17 +263,17 @@
     "borderStyle": "black",
     "backgroundColor": "#FFFFFF",
     "list": [
-      // {
-      //   "pagePath": "pages/list/list",
-      //   "iconPath": "static/tabbar/list.png",
-      //   "selectedIconPath": "static/tabbar/list_active.png",
-      //   "text": "列表"
-      // },
+      {
+        "pagePath": "pages/tree/tree",
+        "iconPath": "static/tabbar/grid.png",
+        "selectedIconPath": "static/tabbar/grid_active.png",
+        "text": "级联"
+      },
       {
         "pagePath": "pages/grid/grid",
         "iconPath": "static/tabbar/grid.png",
         "selectedIconPath": "static/tabbar/grid_active.png",
-        "text": "菜单"
+        "text": "列表"
       },
       {
         "pagePath": "pages/menu/menu",
@@ -280,9 +291,7 @@
   },
   "uniIdRouter": {
     "loginPage": "uni_modules/uni-id-pages/pages/login/login-withoutpwd",
-    "needLogin": [
-      "/uni_modules/uni-id-pages/pages/userinfo/userinfo"
-    ],
+    "needLogin": ["/uni_modules/uni-id-pages/pages/userinfo/userinfo"],
     "resToLogin": true
   }
 }
