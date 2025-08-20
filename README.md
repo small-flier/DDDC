@@ -1,3 +1,3 @@
 <h2>
-文档已移至 <a href="https://uniapp.dcloud.io/uniCloud/uni-starter.html" target="_blank">uni-starter文档</a>
+简单的记录自己会做的菜，和要将要做的菜。
 </h2>
